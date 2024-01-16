@@ -32,8 +32,8 @@ ul.navmenu ul li a {padding:2px 0 2px 0; font-size:1em;}
 
 /* Various classes */
 .slogan {color:#555; font-size:1.4em; margin:0 0 15px 0; padding:0; font:130% Georgia,Times New Roman,serif;}
-.feature {border-top:2px solid #fff; border-bottom:2px solid #fff; border-left:15px solid #fff; border-right:2px solid #fff;}
-.featureBlue {text-align: center; border-top:2px solid #F7F7FB; border-bottom:2px solid #F7F7FB; border-left:2px solid #F7F7FB; border-right:2px solid #F7F7FB;}
+.feature {border-top:2px solid #FFFFFF; border-bottom:2px solid #FFFFFF; border-left:15px solid #FFFFFF; border-right:2px solid #FFFFFF;}
+.featureBlue {text-align: center; display: block; margin-left:auto; margin-right:auto;}
 .menulinks {font-size:1.5em; line-height:1.9em; color:#555; margin:0 0 15px 0;}
 .menulink {padding:6px 8px 5px 8px; font-weight:400; margin:0 0 0 2px; color:#555;}
 .menulink:hover {background-color:#eee; color:#333; text-decoration:none;}
