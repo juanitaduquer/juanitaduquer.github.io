@@ -152,10 +152,13 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 
 \verb|ListSignatures(ModFrmHilElt : Search := "ReturnValues", Isa := false);|.
 
-\item \textsf{Magma} is fussy about types (integers and rational number are different types, for example) and elements may need to be explicitly coerced to have the type you want. To change the rational number  (which will simply produce  when printed) into the integer , use \verb|Integers()!r|.
+\item \textsf{Magma} complains about types.  Elements need to be coerced to have the type you want. For example, to coerce and integer or type Rational  to type Integer: \verb|Integers()!r|.
+
 \item The function \verb|Discriminant(K)| returns the discriminant of the polynomial used to define, not the discriminant of $K$. Use \verb|Discriminant(RingOfIntegers(K))| to get the discriminant of $K$.
 
 \item Use for verbose: \verb|vprintf VerboseLevel : "whatever you want to print";|
+
+\item To iterate over a list, you can use \verb|& + (operation)|.  For example, to add all the prime numbers $\le 20$, do: \begin{verbatim}&+[p : p in [1..20] | IsPrime(p)];\end{verbatim}
 
 \item To run a magma Jupyter kernel, go to \href{https://github.com/edgarcosta/magma_kernel}{this GitHub repository}, and then you can run \verb|sage -n jupyter| .
 
