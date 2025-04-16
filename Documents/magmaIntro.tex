@@ -122,10 +122,11 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 \href{https://math.mit.edu/~edgarc/}{Edgar Costa},
 \href{https://sachihashimoto.github.io}{Sachi Hashimoto},
 \href{https://math.dartmouth.edu/~akulkarn/}{Avi Kulkarni},
+\href{https://www.alexmccleary.org}{Alex McCleary},
 \href{https://math.mit.edu/~sschiavo/}{Sam Schiavone},
 \href{https://sites.google.com/view/pim-spelier/home}{Pim Spelier},
 \href{https://math.mit.edu/~drew/}{Drew Sutherland}, and
-\href{https://math.dartmouth.edu/~jvoight}{John Voight}.
+\href{https://jvoight.github.io}{John Voight}.
 
 \begin{itemize}
 \item Useful links: \href{http://magma.maths.usyd.edu.au/magma/handbook/}{Documentation} and \href{http://magma.maths.usyd.edu.au/magma/pdf/examples.pdf}{general examples}.
@@ -172,6 +173,16 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 \item To run computations in a server and be able to go back even when you disconnect, you can use a screen.  For commands see \href{https://linuxize.com/post/how-to-use-linux-screen/}{this} link.
 
 \item To set up ssh without a password, use something like \href{https://www.strongdm.com/blog/ssh-passwordless-login}{this} link.
+
+\item To delete a variable that you have defined: \verb|delete nameOfVariable;|.  This is useless, but I like it! 
+
+\item If you want to upgrade form lists, you can use \verb|AssociativeArray(indexUniverse)|.  To assign a value: \verb|yourArray[index] := whatever|.  To see which indexes have something assigned, try \verb|Keys(yourArray)|.
+
+\item Magma requires elements of sequences \verb|[  ]| to have the same universe.  If you want a list that takes anything, you can try \verb|[*  *]|.
+% \item SetVerbose.
+% \item try catch.
+% \item print level.
+% \item Cohercing into other structures.
 \end{itemize}
 Do you have more random knowledge? Please email it to me and I will add it to this list!
 \end{document}
