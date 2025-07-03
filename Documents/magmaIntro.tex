@@ -164,10 +164,12 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 
 \item To run a magma Jupyter kernel, go to \href{https://github.com/edgarcosta/magma_kernel}{this GitHub repository}, and then you can run \verb|sage -n jupyter| .
 
-\item To print in a format that is readable by \textsf{Magma}: \verb|Sprint(whateverYouWant, "Magma");|.
+\item To print in a \textsf{Magma}-readable format, do: \verb|Sprint(whateverYouWant, "Magma");|.
 
 \item To coerce a list into the same set: 
 \verb+[Integers() | 4/1, 5/1]+ .
+
+\item In a for loop, you can grab the index! For example, \verb|for i -> s in ["a","b"] do|.
 
 \item To load a \textsf{Magma} file line by line do \verb|iload "NameOfFile.m";|.
 
@@ -175,7 +177,8 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 
 \item To set up ssh without a password, use something like \href{https://www.strongdm.com/blog/ssh-passwordless-login}{this} link.
 
-\item To delete a variable that you have defined: \verb|delete nameOfVariable;|.  This is useless, but I like it! 
+\item To delete a variable that you have defined: \verb|delete nameOfVariable;|.  This may be useless, but I like it! 
+\item Careful with the order of matrix multiplication! \verb|Eigenspace(M,3);|  computes the eigenspace of the action on the right. Consider taking transposes :).
 
 \item If you want to upgrade form lists, you can use \verb|AssociativeArray(indexUniverse)|.  To assign a value: \verb|yourArray[index] := whatever|.  To see which indexes have something assigned, try \verb|Keys(yourArray)|.
 
@@ -189,7 +192,7 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 % \item grwlexw... If you are doing graded, do so from the beginning.
 % \item Order in polynomial rings: "elim", [1,2],[3,4]
 \item To see the last 20 lines: \verb|%P|.
-\item Careful with the order of matrix multiplication! \verb|Eigenspace(M,3);|  computes the eigenspace of the action on the right. Consider taking transposes :).
+
 \end{itemize}
 Do you have more random knowledge? Please email it to me and I will add it to this list!
 \end{document}
