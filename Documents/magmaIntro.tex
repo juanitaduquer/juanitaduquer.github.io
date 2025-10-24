@@ -125,9 +125,10 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 \href{https://www.alexmccleary.org}{Alex McCleary},
 \href{https://math.mit.edu/~sschiavo/}{Sam Schiavone},
 \href{https://sites.google.com/view/pim-spelier/home}{Pim Spelier},
-\href{https://magma.maths.usyd.edu.au/users/allan/}{Allan Steel}
-\href{https://math.mit.edu/~drew/}{Drew Sutherland}, and
-\href{https://jvoight.github.io}{John Voight}.
+\href{https://magma.maths.usyd.edu.au/users/allan/}{Allan Steel},
+\href{https://math.mit.edu/~drew/}{Drew Sutherland}, 
+\href{https://jvoight.github.io}{John Voight},
+\href{https://dmzb.github.io}{David Zureick-Brown}.
 
 \begin{itemize}
 \item Useful links: \href{http://magma.maths.usyd.edu.au/magma/handbook/}{Documentation} and \href{http://magma.maths.usyd.edu.au/magma/pdf/examples.pdf}{general examples}.
@@ -160,7 +161,7 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 
 \item Use for verbose: \verb|vprintf VerboseLevel : "whatever you want to print";|
 
-\item To iterate over a list, you can use \verb|& + (operation)|.  For example, to add all the prime numbers $\le 20$, do: \begin{verbatim}&+[p : p in [1..20] | IsPrime(p)];\end{verbatim}
+
 
 \item To run a magma Jupyter kernel, go to \href{https://github.com/edgarcosta/magma_kernel}{this GitHub repository}, and then you can run \verb|sage -n jupyter| .
 
@@ -168,6 +169,9 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 
 \item To coerce a list into the same set: 
 \verb+[Integers() | 4/1, 5/1]+ .
+
+\item To iterate over a list, you can use \verb|& + (operation)|.  For example, to add all the prime numbers $\le 20$, do: \begin{verbatim}&+[p : p in [1..20] | IsPrime(p)];\end{verbatim}
+Pro-tip: Magma does not like iterating on empty lists unless you coerce it somewhere \begin{verbatim}&+[Integers()| p : p in [0,1] | IsPrime(p)];\end{verbatim}
 
 \item In a for loop, you can grab the index! For example, \verb|for i -> s in ["a","b"] do|.
 
@@ -177,10 +181,7 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 
 \item To set up ssh without a password, use something like \href{https://www.strongdm.com/blog/ssh-passwordless-login}{this} link.
 
-\item To delete a variable that you have defined: \verb|delete nameOfVariable;|.  This may be useless, but I like it! 
 \item Careful with the order of matrix multiplication! \verb|Eigenspace(M,3);|  computes the eigenspace of the action on the right. Consider taking transposes :).
-
-\item If you want to upgrade form lists, you can use \verb|AssociativeArray(indexUniverse)|.  To assign a value: \verb|yourArray[index] := whatever|.  To see which indexes have something assigned, try \verb|Keys(yourArray)|.
 
 \item Magma requires elements of sequences \verb|[  ]| to have the same universe.  If you want a list that takes anything, you can try \verb|[*  *]|.
 % \item SetVerbose.
@@ -192,6 +193,14 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 % \item grwlexw... If you are doing graded, do so from the beginning.
 % \item Order in polynomial rings: "elim", [1,2],[3,4]
 \item To see the last 20 lines: \verb|%P|.
+
+\item To keep magma from breaking up lines (and in particular, from adding ``extra characters'' when breaking up lines, which is annoying if you write output to file).  
+
+\verb|SetColumns(0); SetAutoColumns(false);|
+
+\item If you want to upgrade form lists, you can use \verb|AssociativeArray(indexUniverse)|.  To assign a value: \verb|yourArray[index] := whatever|.  To see which indexes have something assigned, try \verb|Keys(yourArray)|.
+
+\item To delete a variable that you have defined: \verb|delete nameOfVariable;|.  This may be useless, but I like it! 
 
 \end{itemize}
 Do you have more random knowledge? Please email it to me and I will add it to this list!
