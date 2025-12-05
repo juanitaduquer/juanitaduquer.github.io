@@ -121,6 +121,7 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 \href{https://math.dartmouth.edu/~eassaf/}{Eran Assaf},
 \href{https://math.mit.edu/~edgarc/}{Edgar Costa},
 \href{https://sachihashimoto.github.io}{Sachi Hashimoto},
+\href{https://c-keyes.github.io}{Chris Keyes},
 \href{https://math.dartmouth.edu/~akulkarn/}{Avi Kulkarni},
 \href{https://www.alexmccleary.org}{Alex McCleary},
 \href{https://math.mit.edu/~sschiavo/}{Sam Schiavone},
@@ -200,6 +201,7 @@ Pro-tip: Magma does not like iterating on empty lists unless you coerce it somew
 
 \item If you want to upgrade form lists, you can use \verb|AssociativeArray(indexUniverse)|.  To assign a value: \verb|yourArray[index] := whatever|.  To see which indexes have something assigned, try \verb|Keys(yourArray)|.
 
+\item When you want a funciton to call itself, defining it as \verb|TheName := function()| does not work.  Try \verb|function TheName()| instead.
 \item To delete a variable that you have defined: \verb|delete nameOfVariable;|.  This may be useless, but I like it! 
 
 \end{itemize}
