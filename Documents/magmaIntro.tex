@@ -108,7 +108,7 @@
 % \usepackage{bm}
 \usepackage{colonequals}
 \usepackage{verbatim}
-
+\newcommand{\Magma}{\textsf{Magma}}
 \begin{document}
 
 \begin{center}
@@ -117,7 +117,8 @@
 \end{Large}
 \end{center}
 
-This is a compilation of some useful \textsf{Magma} tricks that I have learned through the years. Thank you to all the wonderful people who have shared their knowledge with me:
+This is a compilation of some useful \Magma~tricks that I have learned through the years. Thank you to all the wonderful people who have shared their knowledge with me:
+
 \href{https://math.dartmouth.edu/~eassaf/}{Eran Assaf},
 \href{https://math.mit.edu/~edgarc/}{Edgar Costa},
 \href{https://sachihashimoto.github.io}{Sachi Hashimoto},
@@ -125,6 +126,7 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 \href{https://math.dartmouth.edu/~akulkarn/}{Avi Kulkarni},
 \href{https://www.alexmccleary.org}{Alex McCleary},
 \href{https://math.mit.edu/~sschiavo/}{Sam Schiavone},
+\href{https://janeshi99.github.io}{Jane Shi},
 \href{https://sites.google.com/view/pim-spelier/home}{Pim Spelier},
 \href{https://magma.maths.usyd.edu.au/users/allan/}{Allan Steel},
 \href{https://math.mit.edu/~drew/}{Drew Sutherland}, 
@@ -144,11 +146,21 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 
 \item When you are debugging functions, you can \verb|SetDebugOnError(true);|. This will give you access to the "inside" of your function, up to where \textsf{Magma} got stuck. You print things by \verb|p whateverYouWant|.  Use \verb|q| to quit back to the \textsf{Magma} terminal.  You can see all the functions that were used in your computation using \verb|bt| (shows you the "frames").  Go to a specific frame by writing \verb|f theNumberYouWant|.  Warning: do not use \verb|;|.
 
-\item In your home directory you can create a \verb|file.Magmarc|, if does not exist, to have certain commands to run on start.  To find the file, you can go to your home directory and press Command + Shift + . (period).
-
+\item In your home directory you can create a \verb|file.Magmarc|, if does not exist, to have commands to run on start of \Magma.  To find the file, you can go to your home directory and press Command + Shift + . (period).
 
 \item Use \verb|control| + \verb|e| to get to the last character of a line in the terminal. Use \verb|control| + \verb|a| for the first one. Do \verb|control| + \verb|k| to delete the line.  You can also find other combinations \href{http://magma.maths.usyd.edu.au/magma/handbook/text/53}{here}.
 
+
+\item To coerce a list into the same set: 
+\verb+[Integers() | 4/1, 5/1]+ .
+
+\item To iterate over a list, you can use \verb|& + (operation)|.  For example, to add all the prime numbers $\le 20$, do: \begin{verbatim}&+[p : p in [1..20] | IsPrime(p)];\end{verbatim}
+Pro-tip: Magma does not like iterating on empty lists unless you coerce it somewhere \begin{verbatim}&+[Integers()| p : p in [0,1] | IsPrime(p)];\end{verbatim}
+
+\item In a for loop, you can grab the index! For example, \verb|for i -> s in ["a","b"] do|.
+
+\item To unpack a tuple, you can do \verb|a, b, c := Explode([2,3,7]);|. 
+\item To print in a \textsf{Magma}-readable format, do: \verb|Sprint(whateverYouWant, "Magma");|.
 \item Do \verb|%p| to print all the Magma session.
 \item You can search only for signatures without inheritance:
 
@@ -166,15 +178,6 @@ This is a compilation of some useful \textsf{Magma} tricks that I have learned t
 
 \item To run a magma Jupyter kernel, go to \href{https://github.com/edgarcosta/magma_kernel}{this GitHub repository}, and then you can run \verb|sage -n jupyter| .
 
-\item To print in a \textsf{Magma}-readable format, do: \verb|Sprint(whateverYouWant, "Magma");|.
-
-\item To coerce a list into the same set: 
-\verb+[Integers() | 4/1, 5/1]+ .
-
-\item To iterate over a list, you can use \verb|& + (operation)|.  For example, to add all the prime numbers $\le 20$, do: \begin{verbatim}&+[p : p in [1..20] | IsPrime(p)];\end{verbatim}
-Pro-tip: Magma does not like iterating on empty lists unless you coerce it somewhere \begin{verbatim}&+[Integers()| p : p in [0,1] | IsPrime(p)];\end{verbatim}
-
-\item In a for loop, you can grab the index! For example, \verb|for i -> s in ["a","b"] do|.
 
 \item To load a \textsf{Magma} file line by line do \verb|iload "NameOfFile.m";|.
 
