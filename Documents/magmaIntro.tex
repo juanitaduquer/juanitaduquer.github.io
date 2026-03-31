@@ -164,7 +164,7 @@ Pro-tip: Magma does not like iterating on empty lists unless you coerce it somew
 \item Do \verb|%p| to print all the Magma session.
 \item You can search only for signatures without inheritance:
 
-\verb|ListSignatures(ModFrmHilElt : Isa := false);|.  Moreover, you can also just look for functions where your type is an argument or a return values (very useful when you try to find a function producing the type that another function needs…):
+\verb|ListSignatures(ModFrmHilElt : Isa := false, Search := "Arguments");|.  Moreover, you can also just look for functions where your type is an argument or a return values (very useful when you try to find a function producing the type that another function needs…):
 
 \verb|ListSignatures(ModFrmHilElt : Search := "ReturnValues", Isa := false);|.
 
@@ -172,8 +172,11 @@ Pro-tip: Magma does not like iterating on empty lists unless you coerce it somew
 
 \item The function \verb|Discriminant(K)| returns the discriminant of the polynomial used to define, not the discriminant of $K$. Use \verb|Discriminant(RingOfIntegers(K))| to get the discriminant of $K$.
 
-\item Use for verbose: \verb|vprintf VerboseLevel : "whatever you want to print";|
+\item Use for verbose: \verb|vprintf VerboseLevel : "whatever you want to print";|.
 
+\item To print the $p$-Adic expansion of numbers, define yout pAdic field \verb|Zp| and do 
+
+\verb|Zp`SeriesPrinting := true;|.
 
 
 \item To run a magma Jupyter kernel, go to \href{https://github.com/edgarcosta/magma_kernel}{this GitHub repository}, and then you can run \verb|sage -n jupyter| .
