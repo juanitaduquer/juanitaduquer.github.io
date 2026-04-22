@@ -186,7 +186,13 @@ Pro-tip: Magma does not like iterating on empty lists unless you coerce it somew
 
 \item To run computations in a server and be able to go back even when you disconnect, you can use a screen.  For commands see \href{https://linuxize.com/post/how-to-use-linux-screen/}{this} link.
 
-\item To set up ssh without a password, use something like \href{https://www.strongdm.com/blog/ssh-passwordless-login}{this} link.
+\item To set up ssh without a password, use something like \href{https://www.strongdm.com/blog/ssh-passwordless-login}{this} link. Do not forget to change your configuration file to avoid asking for a password when you ssh into your server. For example, add the following lines to your \verb|~/.ssh/config| file:
+\begin{verbatim}
+Host yourServerName
+    HostName yourServerIP
+    User yourUsername
+    IdentityFile ~/.ssh/yourPrivateKey
+\end{verbatim}
 
 \item Careful with the order of matrix multiplication! \verb|Eigenspace(M,3);|  computes the eigenspace of the action on the right. Consider taking transposes :).
 
@@ -207,7 +213,7 @@ Pro-tip: Magma does not like iterating on empty lists unless you coerce it somew
 
 \item If you want to upgrade form lists, you can use \verb|AssociativeArray(indexUniverse)|.  To assign a value: \verb|yourArray[index] := whatever|.  To see which indexes have something assigned, try \verb|Keys(yourArray)|.
 
-\item When you want a funciton to call itself, defining it as \verb|TheName := function()| does not work.  Try \verb|function TheName()| instead.
+\item When you want a function to call itself, defining it as \verb|TheName := function()| does not work.  Try \verb|function TheName()| instead.
 \item To delete a variable that you have defined: \verb|delete nameOfVariable;|.  This may be useless, but I like it! 
 
 \end{itemize}
